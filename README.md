@@ -29,8 +29,8 @@ Motion Studio built on Ogre SDK and Kinect sensor.
 **IMPORTANT** : To make all building activities right, you should finish this setup at first.
 
 * bin
-    * Debug : Copy all Ogre and its plugins's debug-version dlls here.
-    * Release : Copy all Ogre and its plugins's debug-version dlls here.
+    * Debug : Copy all Ogre and its plugins's debug-version dlls here. (and Sample_Character_d.dll, sample_character_d.pdb to test)
+    * Release : Copy all Ogre and its plugins's debug-version dlls here. (and Sample_Character.dll, sample_character.pdb to test)
 * media : Copy media\\* in OgreSDK directory here
 * Visio Studio user macro setup
     * After opening any project in VS, choose menu -> view -> Property Manager;
