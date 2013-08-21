@@ -40,7 +40,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
-    <IncludePath>..\NuiManager;$(OgreDir)boost;$(OgreDir)include/OGRE;$(OgreDir)include;$(OgreDir)include/OGRE/PlugIns/PCZSceneManager;$(OgreDir)include/OGRE/PlugIns/OctreeZone;$(OgreDir)include/OIS;$(OgreDir)Common/include;$(OgreDir)include/OGRE/RTShaderSystem;$(OgreDir)include/OGRE/Terrain;$(OgreDir)include/OGRE/Paging;$(OgreDir)include/OGRE/Volume;$(OgreDir)include/OGRE/Overlay;$(OgreDir)Samples/Browser/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(OgreDir)boost;$(OgreDir)include/OGRE;$(OgreDir)include;$(OgreDir)include/OGRE/PlugIns/PCZSceneManager;$(OgreDir)include/OGRE/PlugIns/OctreeZone;$(OgreDir)include/OIS;$(OgreDir)Common/include;$(OgreDir)include/OGRE/RTShaderSystem;$(OgreDir)include/OGRE/Terrain;$(OgreDir)include/OGRE/Paging;$(OgreDir)include/OGRE/Volume;$(OgreDir)include/OGRE/Overlay;$(OgreDir)Samples/Browser/include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)bin\$(Configuration)\;$(OgreDir)boost/lib;$(OgreDir)lib/Debug;$(LibraryPath)</LibraryPath>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>

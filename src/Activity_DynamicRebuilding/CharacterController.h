@@ -3,8 +3,8 @@
 
 #include <OGRE\Ogre.h>
 #include <OIS\OIS.h>
-#include <NuiManager.h>
-#include <NuiDataType_KinectSDK.h>
+#include "../NuiManager/NuiManager.h"
+#include "../NuiManager_KinectSDK/NuiDataType_KinectSDK.h"
 
 using namespace Ogre;
 

@@ -11,8 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{63DC3489-6E23-41E2-9892-284A6FAF0905}</ProjectGuid>
-    <RootNamespace>NuiManager</RootNamespace>
+    <ProjectGuid>{8137F0A6-B059-4BE9-9C6D-B67D8D9CA0FA}</ProjectGuid>
+    <RootNamespace>NuiManager_KinectSDK</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -40,9 +40,9 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
     <IncludePath>$(OgreDir)boost;$(OgreDir)include/OGRE;$(OgreDir)include;$(OgreDir)include/OGRE/PlugIns/PCZSceneManager;$(OgreDir)include/OGRE/PlugIns/OctreeZone;$(OgreDir)include/OIS;$(OgreDir)Common/include;$(OgreDir)include/OGRE/RTShaderSystem;$(OgreDir)include/OGRE/Terrain;$(OgreDir)include/OGRE/Paging;$(OgreDir)include/OGRE/Volume;$(OgreDir)include/OGRE/Overlay;$(OgreDir)Samples/Browser/include;$(KINECTSDK10_DIR)\inc;$(IncludePath)</IncludePath>
     <LibraryPath>$(OgreDir)boost/lib;$(OgreDir)lib/Debug;$(KINECTSDK10_DIR)\lib\x86;$(LibraryPath)</LibraryPath>
-    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -71,15 +71,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="NuiManager_KinectSDK.cpp" />
-    <ClCompile Include="NuiManagerDLL.cpp" />
+    <ClInclude Include="NuiDataType_KinectSDK.h" />
+    <ClInclude Include="NuiManager_KinectSDK.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="NuiDataType.h" />
-    <ClInclude Include="NuiDataType_KinectSDK.h" />
-    <ClInclude Include="NuiManager.h" />
-    <ClInclude Include="NuiManager_KinectSDK.h" />
-    <ClInclude Include="NuiManagerPrerequisites.h" />
+    <ClCompile Include="NuiManager_KinectSDK_DLL.cpp" />
+    <ClCompile Include="NuiManager_KinectSDK.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

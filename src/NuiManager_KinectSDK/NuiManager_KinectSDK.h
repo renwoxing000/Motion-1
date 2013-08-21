@@ -1,7 +1,7 @@
 #include <OGRE/Ogre.h>
 #include <OGRE/OgrePlugin.h>
 #include <NuiApi.h>
-#include "NuiManager.h"
+#include "../NuiManager/NuiManager.h"
 #include "NuiDataType_KinectSDK.h"
 
 class NuiManager_KinectSDK : public NuiManager
