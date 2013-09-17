@@ -20,11 +20,11 @@ public:
 
 		// Create main model
 		mCharaNode = sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
-		mCharaEnt = sceneMgr->createEntity("SinbadBody", "Sinbad.mesh");
+		//mCharaEnt = sceneMgr->createEntity("SinbadBody", "Sinbad.mesh");
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
 		
-		// Get NuiManager
+		// Get NuiManager、
 		Root::PluginInstanceList list = Root::getSingletonPtr()->getInstalledPlugins();
 		for(int i=0; i<(int)list.size(); i++)
 		{
