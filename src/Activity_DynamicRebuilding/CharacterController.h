@@ -20,10 +20,15 @@ public:
 
 		// Create main model
 		mCharaNode = sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
-		mCharaEnt = sceneMgr->createEntity("SinbadBody", "Sinbad.mesh");
+		mCharaEnt = sceneMgr->createEntity("RTBody", "slrig_model001.mesh");
+		mCharaNode->setPosition(0,9,0);
+		mCharaNode->pitch(Ogre::Degree(90));
+
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
 		
+		mCameraNode=sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
+		mCameraNode->setPosition(0,9,0);
 		// Get NuiManager
 		Root::PluginInstanceList list = Root::getSingletonPtr()->getInstalledPlugins();
 		for(int i=0; i<(int)list.size(); i++)
@@ -67,8 +72,12 @@ private:
 	SceneNode*  mCharaNode;
 	Entity*     mCharaEnt;
 	Skeleton*   mCharaSkl;
-
+	
 	NuiManager* mNuiMgr;
+
+public:
+
+	SceneNode*   mCameraNode;
 };
 
 #endif
