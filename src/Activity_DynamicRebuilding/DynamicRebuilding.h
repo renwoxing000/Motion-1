@@ -78,7 +78,8 @@ protected:
 
 		// set our camera to orbit around the model
 		mCameraMan->setStyle(CS_ORBIT);
-		//mCameraMan->setTarget(mChara->getBodyNode());
+		mCameraMan->setTarget(mChara->getBodyNode());
+		mCameraMan->setYawPitchDist(Degree(0), Degree(10), 15);
 		mCameraMan->setTarget(mChara->mCameraNode);
 		mCameraMan->setYawPitchDist(Degree(0), Degree(10), 50);
 		mCameraMan->setTopSpeed(20);

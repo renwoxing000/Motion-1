@@ -2,12 +2,10 @@
 
 const Ogre::String sPluginName = "NuiManager_KinectSDK";
 
-//const Ogre::String sOgreBoneNames[] = { "Root","Waist","Chest","Head",
-//	"Clavicle.L","Humerus.L","Ulna.L","Hand.L","Clavicle.R","Humerus.R","Ulna.R","Hand.R",
-//	"Thigh.L","Calf.L","Foot.L","Toe.L","Thigh.R","Calf.R","Foot.R","Toe.R"};
 const Ogre::String sOgreBoneNames[] = { "mPelvis","mTorso","mChest","mHead",
 	"mCollarLeft","mShoulderLeft","mElbowLeft","mWristLeft","mCollarRight","mShoulderRight","mElbowRight","mWristRight",
 	"mHipLeft","mKneeLeft","mAnkleLeft","mFootLeft","mHipRight","mKneeRight","mAnkleRight","mFootRight"};
+
 
 NuiManager_KinectSDK::NuiManager_KinectSDK():NuiManager()
 {

@@ -3,8 +3,8 @@
 
 #include <OGRE\Ogre.h>
 #include <OIS\OIS.h>
-#include <NuiManager.h>
-#include <NuiDataType_KinectSDK.h>
+#include "../NuiManager/NuiManager.h"
+#include "../NuiManager_KinectSDK/NuiDataType_KinectSDK.h"
 
 using namespace Ogre;
 
@@ -20,24 +20,19 @@ public:
 
 		// Create main model
 		mCharaNode = sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
-		//mCharaEnt = sceneMgr->createEntity("SinbadBody", "Sinbad.mesh");
 		mCharaEnt = sceneMgr->createEntity("RTBody", "slrig_model001.mesh");
-		//mCharaEnt = sceneMgr->createEntity("RTBody", "Model001.mesh");
-
 		mCharaNode->setPosition(0,9,0);
 		mCharaNode->pitch(Ogre::Degree(90));
-		
+
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
-
-	    mCameraNode=sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
-		mCameraNode->setPosition(0,9,0);
 		
+		mCameraNode=sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
+		mCameraNode->setPosition(0,9,0);
 		// Get NuiManager
 		Root::PluginInstanceList list = Root::getSingletonPtr()->getInstalledPlugins();
 		for(int i=0; i<(int)list.size(); i++)
 		{
-			std::cout<<list[i]->getName()<<std::endl;
 			if (list[i]->getName() == "NuiManager_KinectSDK")
 			{
 				mNuiMgr = dynamic_cast<NuiManager*>(list[i]);
@@ -77,10 +72,11 @@ private:
 	SceneNode*  mCharaNode;
 	Entity*     mCharaEnt;
 	Skeleton*   mCharaSkl;
-
+	
 	NuiManager* mNuiMgr;
 
 public:
+
 	SceneNode*   mCameraNode;
 };
 
