@@ -6,7 +6,6 @@ const Ogre::String sOgreBoneNames[] = { "mPelvis","mTorso","mChest","mHead",
 	"mCollarLeft","mShoulderLeft","mElbowLeft","mWristLeft","mCollarRight","mShoulderRight","mElbowRight","mWristRight",
 	"mHipLeft","mKneeLeft","mAnkleLeft","mFootLeft","mHipRight","mKneeRight","mAnkleRight","mFootRight"};
 
-
 NuiManager_KinectSDK::NuiManager_KinectSDK():NuiManager()
 {
 	mNuiSensor = NULL;
