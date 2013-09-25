@@ -13,6 +13,14 @@ media/*
 !media/thumbnails
 media/thumbnails/*
 !media/thumbnails/thumb_DynamicRebuilding.png
+!media/models
+media/models/*
+!media/models/slrig_model*
+!media/materials
+media/materials/*
+!media/materials/textures
+media/materials/textures/*
+!media/materials/textures/texture*
 
 # src
 src/**/[Dd]ebug
