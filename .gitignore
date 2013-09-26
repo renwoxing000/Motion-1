@@ -20,7 +20,7 @@ media/models/*
 media/materials/*
 !media/materials/textures
 media/materials/textures/*
-!media/materials/textures/texture*
+!media/materials/textures/texture.png
 
 # src
 src/**/[Dd]ebug
