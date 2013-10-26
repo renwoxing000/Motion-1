@@ -22,13 +22,22 @@ public:
 		mCharaNode = sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
 		mCharaEnt = sceneMgr->createEntity("RTBody", "slrig_model001.mesh");
 		mCharaNode->setPosition(0,9,0);
-		mCharaNode->pitch(Ogre::Degree(90));
-
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
+		//mCharaSkl->getBone("mPelvis")->pitch(Ogre::Degree(90),SceneNode::TS_WORLD);
+
+		Quaternion q(Degree(90), Vector3::UNIT_X );
+		//Ogre::Bone* bone = mCharaSkl->getBone("mHipLeft");
+		Ogre::Bone* bone = mCharaSkl->getBone("mHipLeft");
+		bone->setManuallyControlled(true);
+		bone->setInheritOrientation(false);
 		
-		mCameraNode=sceneMgr->getRootSceneNode()->createChildSceneNode(Vector3::UNIT_Y * CHAR_HEIGHT);
-		mCameraNode->setPosition(0,9,0);
+		bone->resetOrientation();
+		bone->setOrientation(q);
+	
+		bone->setInitialState();
+
+		
 		// Get NuiManager
 		Root::PluginInstanceList list = Root::getSingletonPtr()->getInstalledPlugins();
 		for(int i=0; i<(int)list.size(); i++)
@@ -75,9 +84,6 @@ private:
 	
 	NuiManager* mNuiMgr;
 
-public:
-
-	SceneNode*   mCameraNode;
 };
 
 #endif
