@@ -10,6 +10,12 @@ using namespace Ogre;
 
 #define CHAR_HEIGHT 5          // height of character's center of mass above ground
 
+#define MODELBONENUMS 26
+const Ogre::String sModelBoneNames[] = { "mPelvis","mTorso","mChest","mHead",
+	"mCollarLeft","mShoulderLeft","mElbowLeft","mWristLeft","mCollarRight","mShoulderRight","mElbowRight","mWristRight",
+	"mHipLeft","mKneeLeft","mAnkleLeft","mFootLeft","mHipRight","mKneeRight","mAnkleRight","mFootRight",
+	"mToeLeft","mToeRight","mNeck","mSkull","mEyeLeft","mCollarLeft"};
+
 class CharacterController
 {
 public:
@@ -24,18 +30,8 @@ public:
 		mCharaNode->setPosition(0,9,0);
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
-		//mCharaSkl->getBone("mPelvis")->pitch(Ogre::Degree(90),SceneNode::TS_WORLD);
 
-		Quaternion q(Degree(90), Vector3::UNIT_X );
-		//Ogre::Bone* bone = mCharaSkl->getBone("mHipLeft");
-		Ogre::Bone* bone = mCharaSkl->getBone("mHipLeft");
-		bone->setManuallyControlled(true);
-		bone->setInheritOrientation(false);
 		
-		bone->resetOrientation();
-		bone->setOrientation(q);
-	
-		bone->setInitialState();
 
 		
 		// Get NuiManager
@@ -53,21 +49,65 @@ public:
 			return;
 		}
 
-		// Set skeleton manually controlled
-		for(int i=0; i<NUI_MANAGER_BONE_COUNT; i++)
-		{
-			mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(i))->setManuallyControlled(true);
-		}
 	}
 
 	void update(Real deltaTime)
 	{
 		if (mNuiMgr)
 		{
-			for(int i=1; i<NUI_MANAGER_BONE_COUNT; i++)
-			{
-				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(i))->setOrientation( mNuiMgr->getBoneOrientationsH()[i] );
-			}
+			
+				
+				setupBone(sModelBoneNames[0],Degree(0),Degree(90),Degree(0));
+				setupBone(sModelBoneNames[1],Degree(0),Degree(-10),Degree(0));
+				setupBone(sModelBoneNames[2],Degree(0),Degree(-10),Degree(0));
+				setupBone(sModelBoneNames[3],Degree(0),Degree(30),Degree(0));
+				setupBone(sModelBoneNames[5],Degree(0),Degree(0),Degree(-90));
+				setupBone(sModelBoneNames[6],Degree(0),Degree(0),Degree(-90));
+				setupBone(sModelBoneNames[7],Degree(0),Degree(0),Degree(-90));
+				setupBone(sModelBoneNames[9],Degree(0),Degree(0),Degree(90));
+				setupBone(sModelBoneNames[10],Degree(0),Degree(0),Degree(90));
+				setupBone(sModelBoneNames[11],Degree(0),Degree(0),Degree(90));
+				setupBone(sModelBoneNames[12],Degree(0),Degree(180),Degree(0));
+				setupBone(sModelBoneNames[13],Degree(180),Degree(180),Degree(0));
+				setupBone(sModelBoneNames[14],Degree(0),Degree(110),Degree(0));
+				setupBone(sModelBoneNames[15],Degree(0),Degree(80),Degree(0));
+				setupBone(sModelBoneNames[16],Degree(0),Degree(180),Degree(0));
+				setupBone(sModelBoneNames[17],Degree(180),Degree(180),Degree(0));
+				setupBone(sModelBoneNames[18],Degree(0),Degree(110),Degree(0));
+				setupBone(sModelBoneNames[19],Degree(0),Degree(80),Degree(0));
+
+			/*	Quaternion q1(Degree(-90), Vector3::UNIT_X );
+				Quaternion q2(Degree(180), Vector3::UNIT_Y );
+				Quaternion q3(Degree(180), Vector3::UNIT_Z );*/
+				Quaternion q1(Degree(90), Vector3::UNIT_X );
+				Quaternion q(Degree(180), Vector3::UNIT_Y );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(0))->setOrientation(mNuiMgr->getBoneOrientationsA()[0]*q1);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(1))->setOrientation(mNuiMgr->getBoneOrientationsA()[1]);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(2))->setOrientation(mNuiMgr->getBoneOrientationsA()[2]);
+				Quaternion q2(Degree(90), Vector3::UNIT_X );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(3))->setOrientation(mNuiMgr->getBoneOrientationsA()[3]*q2);
+				Quaternion q3(Degree(-15), Vector3::UNIT_Z );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(5))->setOrientation(mNuiMgr->getBoneOrientationsA()[5]*q3);
+				//Quaternion q5(Degree(180), Vector3::UNIT_Y );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(6))->setOrientation(mNuiMgr->getBoneOrientationsA()[6]);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(7))->setOrientation(mNuiMgr->getBoneOrientationsA()[7]);
+				Quaternion q8(Degree(15), Vector3::UNIT_Z );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(9))->setOrientation(mNuiMgr->getBoneOrientationsA()[9]*q8);
+				//Quaternion q9(Degree(180), Vector3::UNIT_Y );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(10))->setOrientation(mNuiMgr->getBoneOrientationsA()[10]);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(11))->setOrientation(mNuiMgr->getBoneOrientationsA()[11]);
+				Quaternion q12(Degree(-45), Vector3::UNIT_Z );
+				Quaternion q122(Degree(180), Vector3::UNIT_Y );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(12))->setOrientation(mNuiMgr->getBoneOrientationsA()[13]*q122);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(13))->setOrientation(mNuiMgr->getBoneOrientationsA()[14]);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(14))->setOrientation(mNuiMgr->getBoneOrientationsA()[15]);
+				//mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(15))->setOrientation(mNuiMgr->getBoneOrientationsA()[15]);
+				Quaternion q16(Degree(45), Vector3::UNIT_Z );
+				Quaternion q162(Degree(180), Vector3::UNIT_Y );
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(16))->setOrientation(mNuiMgr->getBoneOrientationsA()[17]*q162);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(17))->setOrientation(mNuiMgr->getBoneOrientationsA()[18]);
+				mCharaSkl->getBone(mNuiMgr->getCorrespondingOgreBone(18))->setOrientation(mNuiMgr->getBoneOrientationsA()[19]);
+				
 		}
 	}
 
@@ -82,7 +122,45 @@ private:
 	Entity*     mCharaEnt;
 	Skeleton*   mCharaSkl;
 	
+	
 	NuiManager* mNuiMgr;
+
+	void setupBone(const String& name,const Ogre::Radian& angle, const Vector3 axis)
+	{
+		
+		Quaternion q;
+		q.FromAngleAxis(angle,axis);	 
+		setupBone(name, q);
+
+	}
+	void setupBone(const String& name,const Degree& yaw,const Degree& pitch,const Degree& roll)
+	{
+		Ogre::Bone* bone = mCharaEnt->getSkeleton()->getBone(name);
+		bone->setManuallyControlled(true);
+		bone->setInheritOrientation(false);
+		
+		bone->resetOrientation();
+		
+		bone->yaw(yaw);
+		bone->pitch(pitch);
+		bone->roll(roll);
+	
+		//Matrix3 mat = bone->getLocalAxes();
+		bone->setInitialState();
+
+	}
+	void setupBone(const String& name,const Ogre::Quaternion& q)
+	{
+		Ogre::Bone* bone = mCharaEnt->getSkeleton()->getBone(name);
+		bone->setManuallyControlled(true);
+		bone->setInheritOrientation(false);
+		
+		bone->resetOrientation();
+		bone->setOrientation(q);
+	
+		bone->setInitialState();
+	}
+
 
 };
 
