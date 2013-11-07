@@ -7,8 +7,8 @@
 using namespace Ogre;
 using namespace OgreBites;
 
-#define CAMERA_DISTANCE_MIN  10
-#define CAMERA_DISTANCE_MAX  25
+#define CAMERA_DISTANCE_MIN  15
+#define CAMERA_DISTANCE_MAX  40
 
 class _OgreSampleClassExport Activity_DynamicRebuilding : public SdkSample
 {
@@ -71,7 +71,7 @@ protected:
 	{   
 		// setup some basic lighting for our scene
         mSceneMgr->setAmbientLight(ColourValue(0.4f, 0.4f, 0.4f));
-        mSceneMgr->createLight()->setPosition(20, 80, 50);
+        mSceneMgr->createLight()->setPosition(-20, 80, -50);
 
 		// create the model
 		mChara = new CharacterController(mSceneMgr);
@@ -79,7 +79,7 @@ protected:
 		// set our camera to orbit around the model
 		mCameraMan->setStyle(CS_ORBIT);
 		mCameraMan->setTarget(mChara->getBodyNode());
-		mCameraMan->setYawPitchDist(Degree(0), Degree(10), 15);
+		mCameraMan->setYawPitchDist(Degree(180), Degree(10), 25);
 		mCameraMan->setTopSpeed(20);
 
 		// set TrayMgr up
