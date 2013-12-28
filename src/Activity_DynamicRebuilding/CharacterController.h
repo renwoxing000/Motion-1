@@ -31,14 +31,12 @@ public:
 		mCharaSkl = mCharaEnt->getSkeleton();
 		mCharaNode->attachObject(mCharaEnt);
 
-		
-
-		
 		// Get NuiManager
 		Root::PluginInstanceList list = Root::getSingletonPtr()->getInstalledPlugins();
 		for(int i=0; i<(int)list.size(); i++)
 		{
-			if (list[i]->getName() == "NuiManager_KinectSDK")
+			//if (list[i]->getName() == "NuiManager_KinectSDK")
+			if (list[i]->getName() == "NuiManager_DataFile")
 			{
 				mNuiMgr = dynamic_cast<NuiManager*>(list[i]);
 				break;

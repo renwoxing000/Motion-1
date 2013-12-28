@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{baabcebd-b0b8-4fe0-ba34-0850dfd40266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{912e423f-d5b4-406d-bfc1-44d76020bd5a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="NuiManager_DataFile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="NuiManager_DataFile_DLL.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="NuiManager_DataFile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="NuiDataType_DataFile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+#ifndef __NuiDataType_KinectSDK_h_
+#define __NuiDataType_KinectSDK_h_
+
+/*
+	Enum data types so the system will not depend directly to Kinect API
+*/
+
+	#ifndef __NuiDataType_h_
+	#define __NuiDataType_h_
+
+	typedef enum _NuiManagerState{
+		NUI_MANAGER_OK,
+		NUI_MANAGER_UNINITIATED,
+		NUI_MANAGER_API_ERROR,
+		NUI_MANAGER_NO_SENSOR,
+		NUI_MANAGER_NO_READY_SENSOR
+	} NuiManagerState;
+
+	#endif
+
+#include <OGRE/OgreString.h>
+
+typedef enum _NuiManagerBone
+{
+	NUI_MANAGER_HIP_CENTER,
+	NUI_MANAGER_SPINE,
+	NUI_MANAGER_SHOULDER_CENTER,
+	NUI_MANAGER_HEAD,
+    NUI_MANAGER_SHOULDER_LEFT,
+    NUI_MANAGER_ELBOW_LEFT,
+    NUI_MANAGER_WRIST_LEFT,
+    NUI_MANAGER_HAND_LEFT,
+    NUI_MANAGER_SHOULDER_RIGHT,
+    NUI_MANAGER_ELBOW_RIGHT,
+    NUI_MANAGER_WRIST_RIGHT,
+    NUI_MANAGER_HAND_RIGHT,
+    NUI_MANAGER_HIP_LEFT,//12
+    NUI_MANAGER_KNEE_LEFT,
+    NUI_MANAGER_ANKLE_LEFT,
+    NUI_MANAGER_FOOT_LEFT,
+    NUI_MANAGER_HIP_RIGHT,
+    NUI_MANAGER_KNEE_RIGHT,
+    NUI_MANAGER_ANKLE_RIGHT,
+    NUI_MANAGER_FOOT_RIGHT,
+	NUI_MANAGER_BONE_COUNT
+} NuiManageBone;
+
+#endif
